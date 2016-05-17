@@ -2,6 +2,7 @@ var _stage = document.getElementById("stage");
 var _canvas = document.querySelector("canvas");
 var surface = _canvas.getContext("2d"); // d is lowercase!
 
+//Set the canvas size
 const ROWS = 6;
 const COLS = 8;
 const SIZE = 100;
@@ -10,51 +11,88 @@ const scroll = 5;
 _canvas.width = COLS*SIZE;
 _canvas.height = ROWS*SIZE;
 
+//Variables:
+
+//Keyboard Control vars
 var leftPressed = false;
 var rightPressed = false;
 var upPressed = false;
 var downPressed = false;
 var zPressed = false;
-var projectSpeed = 10;
-var bullet =[];
-var enemy = [];
-var enemy_bullet = [];
-var map = []; // = new Array(ROWS);
+
+var projectSpeed = 10; 	//Projectile Speed(?)
+
+var bullet =[]; 		//Bullet Array
+var enemy = []; 		//Enemy Array
+var enemy_bullet = []; 	//Enemy Bullet Array 
+var map = []; 			// = new Array(ROWS);
+
+
+//Player var
 var player = {x:SIZE*2, y:SIZE*3, speed:10, 
               dX:0, dY:0, image:null};
-var uIval = setInterval(update, 33.34); // 30fps
-// var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
+
+
+var uIval = setInterval(update, 33.34); 	//30fps
+
+
+
+var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y}; 	//Initialize bullet to player's position
 var bulletImg = new Image();
+	bulletImg.src = "img/bullet.png";
 var bullet_trig = true;
-bulletImg.src = "img/bullet.png";
+
+
 //animation vars
 var frameCtr = 0;
 var ctrMax = 4;
 var spriteIdx = 0;
 var idxMax = 3;
+
 var bgImage = new Image();
-bgImage.src = "img/purple_woods.jpg";
+	bgImage.src = "img/purple_woods.jpg";
+
 var pImage = new Image();
 	pImage.src = "img/bird.png";
 	player.image = pImage;
+
 var seagullImage = new Image();
-seagullImage.src = "img/enemy_seagull.png";
+	seagullImage.src = "img/enemy_seagull.png";
+
 var enemy_bulletImg = new Image();
-enemy_bulletImg.src = "img/orange_bullet.png";
+	enemy_bulletImg.src = "img/orange_bullet.png";
+
+
 var coll_effect = [];
 var orange_hitImg = new Image();
+	orange_hitImg.src = "img/orange_hit.png";
+
 var seagullDeath = new Audio();
-seagullDeath.src = "sound/seagull-death.mp3";
+	seagullDeath.src = "sound/seagull-death.mp3";
+
 var laser = new Audio();
-laser.src = "sound/laser.wav";
-orange_hitImg.src = "img/orange_hit.png";
-initGame();
+	laser.src = "sound/laser.wav";
+
+
+
+initGame(); //initialize game
+
+
 //viewinfo();
-setTimeout(enemy_gen,200);
+
+setTimeout(enemy_gen,200); 	//Set enemy generation / spawn 
+
 var enemyint = setInterval(enemy_gen,700);
-var score = 0; // +=1 for every kill
+var score = 0; 	// +=1 for every kill
+var playerLives = 3; //var for player lives set to 3. 
+
+//End of Variable declarations
 
 
+
+
+
+//Function Definitions:
 function initGame()
 {
 	
@@ -75,6 +113,7 @@ function update() // Going to run 30fps
 	move_enemies();
 	collision_check();
 	player_animation();
+	
 	// animate sprites
 	effect_animation();
 	render();
@@ -199,7 +238,7 @@ function collision_check()
 				  {
 					  // collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
 					  // score--;
-					  death(); 
+		              reduceLives();
 					  enemy_bullet.splice(i,1);
 					  
 				  }	  
@@ -218,7 +257,7 @@ function collision_check()
 				  {
 					  // collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
 					  // score--;
-					  death(); 
+					  reduceLives(); 
 					  enemy_bullet.splice(i,1);
 					  
 				  }	  
@@ -288,6 +327,24 @@ function projectile()
 	
 }
 
+function reduceLives()
+{
+    
+    if (playerLives > 0)
+
+    {
+        playerLives--;
+
+    }
+    else if (playerLives == 0)
+	{
+		death();
+	}
+  
+   
+    
+}
+
 function death()
 {
 		
@@ -355,7 +412,12 @@ function render()
 		// Render score
 		surface.font="30px Verdana";
 		surface.fillText("Score", 550,50);
-		surface.fillText(score, 700,50);
+		surface.fillText(score, 700, 50);
+
+        // Render lives
+		surface.font = "30px Verdana";
+		surface.fillText("Lives: ", 50, 50);
+		surface.fillText(playerLives, 200, 50);
 	
 	
 }
