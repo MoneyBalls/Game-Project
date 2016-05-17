@@ -87,14 +87,27 @@ function enemy_gen()
 	
 	var l = enemy.length;
     // bullet_generation( l ,135, 30);
-	
-	fire_Nbullet(15);
-	setTimeout(fire_Nbullet,500,15);
+	fire_Circlebullet(enemy.length-1,15);
+
+	//fire_Nbullet(15);
+	//setTimeout(fire_Nbullet,500,15);
 	
 	
 	
 	
 }
+
+
+function fire_Circlebullet(i, speed)
+{
+	var angle;
+	for (var j = 0; j < 360; j +=10)
+	{	
+	bullet_generation( i, j, speed);
+	}
+	
+}
+
 
 function fire_Nbullet(speed)
 {
@@ -112,7 +125,7 @@ function bullet_generation( i, angle, speed)
     var xspd= Math.round(speed * Math.cos(rads));
     var yspd= Math.round(speed * Math.sin(rads));
 	// enemy_bullet[enemy_bullet.length] = {width:7, height:7, speed:24, x: player.x , y:player.y - 20};
-    enemy_bullet[enemy_bullet.length] = {x: enemy[i].x , y: enemy[i].y , xspeed: xspd, yspeed: yspd, image:enemy_bulletImg }; 
+    enemy_bullet[enemy_bullet.length] = {x: enemy[i].x , y: enemy[i].y , xspeed: xspd, yspeed: yspd, image:enemy_bulletImg, type: "normal" }; 
     
 }
 function move_enemies()
@@ -233,21 +246,55 @@ function collision_effect(x,y, color) /* 1 for blue, 2 for orange */
 		coll_effect[coll_effect.length] = {x: x, y: y, image:orange_hitImg, frameCtr:0, ctrMax:3, spriteIdx:0, idxMax:3 }
 	}
 }
+
+function player_Nbullet()  // Normal bullet
+{
+	laser.play();
+	bullet[bullet.length] = {width:7, height:7, xspeed:24, yspeed:0, x:player.x+60 , y:player.y+25 };
+}
+
+function player_Spray()
+{
+	var speed = 24;
+	//spray angle 30 - 330, 0~30 330~360
+	var rannum;
+	var rads;
+	var xspd;
+	var yspd;
+	var angle;
+	
+	for (var i = 0; i < 5; i++)
+	{
+		
+	rannum = Math.floor(Math.random()*5);
+	angle = rannum * 10 + 335;
+	rads = Math.PI/180 * angle;
+    xspd = Math.round(speed * Math.cos(rads));
+    yspd = Math.round(speed * Math.sin(rads));
+	// bullet[bullet.length] = {width:7, height:7, xspeed:xspd, y:yspd, x:player.x+60, y:player.y+25 };
+	bullet[bullet.length] = {width:7, height:7, xspeed:xspd, yspeed:yspd, x:player.x+50+i*10 , y:player.y+25 };
+	}
+	
+}
+	
+
+
 function projectile()
 {
     // player bullet generation
 	if ( zPressed == true && bullet_trig == true )
 	{
 		//console.log("fired");
-		laser.play();
-		bullet[bullet.length] = {width:7, height:7, speed:24, x:player.x+60 , y:player.y+25 };
+		player_Spray();
+		//player_Nbullet();
 		bullet_trig = false;
 	}
 	
 	// player bullet movement
 	for (var i = 0; i < bullet.length ; i++)
 	{
-		bullet[i].x += bullet[i].speed;
+		bullet[i].x += bullet[i].xspeed;
+		bullet[i].y += bullet[i].yspeed;
 	}
 	
 	// player + enemy bullet deletion outside of boundary
