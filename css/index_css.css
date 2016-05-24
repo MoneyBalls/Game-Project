@@ -1,3 +1,4 @@
+<<<<<<< HEAD:css/index_css.css
 
 #stage {
 	width: 800px;
@@ -5,4 +6,13 @@
 	background-color: black;
 	margin-left: auto;
 	margin-right: auto;
+=======
+
+#stage {
+	width: 800px;
+	height: 600px;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+>>>>>>> refs/remotes/origin/New-moon:css/index_css.css
 }    
