@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 	
 	var enemy_bulletImg = new Image();
 	enemy_bulletImg.src = "img/orange_bullet.png";
@@ -61,7 +61,7 @@ function enemyBulletCheck()
 	    enemy_bullet[e].x += enemy_bullet[e].xspeed;
 	    enemy_bullet[e].y -= enemy_bullet[e].yspeed;
 	}
-=======
+
 	
 	var enemy_bulletImg = new Image();
 	enemy_bulletImg.src = "img/orange_bullet.png";
@@ -124,5 +124,5 @@ function enemyBulletCheck()
 	    enemy_bullet[e].x += enemy_bullet[e].xspeed;
 	    enemy_bullet[e].y -= enemy_bullet[e].yspeed;
 	}
->>>>>>> refs/remotes/origin/New-moon
+
 }

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 function render_bullets()
 {
@@ -14,7 +14,7 @@ function render_bullets()
     {
         surface.drawImage(enemy_bulletImg, enemy_bullet[j].x, enemy_bullet[j].y,20,15);
     }
-=======
+
 
 function render_bullets()
 {
@@ -30,5 +30,5 @@ function render_bullets()
     {
         surface.drawImage(enemy_bulletImg, enemy_bullet[j].x, enemy_bullet[j].y,20,15);
     }
->>>>>>> refs/remotes/origin/New-moon
+
 }

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 	
 	var leftPressed = false;
 	var rightPressed = false;
@@ -66,7 +66,7 @@ function movePlayer()
 	
 	if ( downPressed == true && player.y < 600 - 60)
 		player.y += player.speed;
-=======
+
 	
 	var leftPressed = false;
 	var rightPressed = false;
@@ -134,5 +134,5 @@ function movePlayer()
 	
 	if ( downPressed == true && player.y < 600 - 60)
 		player.y += player.speed;
->>>>>>> refs/remotes/origin/New-moon
+
 }

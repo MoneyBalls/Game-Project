@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 	
 	var score = 0; 	// +=1 for every kill
 	
@@ -122,5 +122,5 @@ function collision_effect(x,y, color) /* 1 for blue, 2 for orange */
 	{
 		coll_effect[coll_effect.length] = {x: x, y: y, image:orange_hitImg, frameCtr:0, ctrMax:3, spriteIdx:0, idxMax:3}
 	}
->>>>>>> refs/remotes/origin/New-moon
+
 }

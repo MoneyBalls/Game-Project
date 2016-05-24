@@ -48,7 +48,7 @@ function effect_animation()
 		}
 	    coll_effect[i].frameCtr++;
 	}
-=======
+
 	//animation vars
 	var frameCtr = 0;
 	var ctrMax = 4;
@@ -98,5 +98,5 @@ function effect_animation()
 		}
 	    coll_effect[i].frameCtr++;
 	}
->>>>>>> refs/remotes/origin/New-moon
+
 }

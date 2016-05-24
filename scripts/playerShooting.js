@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 	var projectSpeed = 10; 	//Projectile Speed(?)
 	var bullet = []; 		//Bullet Array
@@ -91,7 +91,7 @@ function playerBulletCheck()
 		}
 	}
 }
-=======
+
 
 	var projectSpeed = 10; 	//Projectile Speed(?)
 	var bullet = []; 		//Bullet Array
@@ -184,4 +184,4 @@ function playerBulletCheck()
 		}
 	}
 }
->>>>>>> refs/remotes/origin/New-moon
+

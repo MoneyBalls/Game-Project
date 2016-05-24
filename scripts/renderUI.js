@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 function render_UI()
 {
@@ -17,7 +17,6 @@ function render_UI()
 	surface.font = "30px Verdana";
 	surface.fillText("Lives: ", 50, 50);
 	surface.fillText(playerLives, 200, 50);
-=======
 
 function render_UI()
 {
@@ -60,5 +59,5 @@ function render_UI()
 			
 		}
 		surface.stroke();
->>>>>>> refs/remotes/origin/New-moon
+
 }
