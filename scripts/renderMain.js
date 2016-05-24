@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 function render_main()
 {
@@ -21,7 +21,7 @@ function render_main()
 	
 	render_bullets();
 	render_UI();
-=======
+
 
 function render_main()
 {
@@ -44,5 +44,5 @@ function render_main()
 	
 	render_bullets();
 	render_UI();
->>>>>>> refs/remotes/origin/New-moon
+
 }

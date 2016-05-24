@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 	var enemy = []; 		//Enemy Array
 	
 	var seagullImage = new Image();
@@ -19,7 +19,7 @@ function enemy_gen()
 
 	//fire_Nbullet(15);
 	//setTimeout(fire_Nbullet,500,15);	
-=======
+
 	var enemy = []; 		//Enemy Array
 	
 	var seagullImage = new Image();
@@ -40,5 +40,5 @@ function enemy_gen()
 
 	//fire_Nbullet(15);
 	//setTimeout(fire_Nbullet,500,15);	
->>>>>>> refs/remotes/origin/New-moon
+
 }

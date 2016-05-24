@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 	
 	var stage = document.getElementById("stage");
 	var canvas = document.querySelector("canvas");
@@ -68,8 +68,7 @@ function scrollMap()
 
 function viewInfo() {
     document.getElementById("info").innerHTML = "ctrMax = " + ctrMax + "<br> idxMax = " + idxMax + "<br> bullet.speed = " + 24;
-=======
-	
+
 	var stage = document.getElementById("stage");
 	var canvas = document.querySelector("canvas");
 	var surface = canvas.getContext("2d"); // d is lowercase!
@@ -138,5 +137,5 @@ function scrollMap()
 
 function viewInfo() {
     document.getElementById("info").innerHTML = "ctrMax = " + ctrMax + "<br> idxMax = " + idxMax + "<br> bullet.speed = " + 24;
->>>>>>> refs/remotes/origin/New-moon
+
 }

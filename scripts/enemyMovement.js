@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 function move_enemies()
 {
@@ -7,7 +7,7 @@ function move_enemies()
         enemy[i].x -= enemy[i].speed;
     }
     
-=======
+
 
 function move_enemies()
 {
@@ -16,5 +16,5 @@ function move_enemies()
         enemy[i].x -= enemy[i].speed;
     }
     
->>>>>>> refs/remotes/origin/New-moon
+
 }
