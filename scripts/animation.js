@@ -37,6 +37,7 @@ function effect_animation()
 {
 	for (var i =0 ; i < coll_effect.length; i++)
 	{
+		
 		if (coll_effect[i].frameCtr == coll_effect[i].ctrMax)
 		{
 			coll_effect[i].frameCtr = 0;
@@ -44,6 +45,7 @@ function effect_animation()
 			
 			if (coll_effect[i].spriteIdx == coll_effect[i].idxMax)
 				coll_effect.splice(i,1);
+			continue;
 		}
 	    coll_effect[i].frameCtr++;
 	}

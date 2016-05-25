@@ -16,9 +16,9 @@ function collision_check()
 	{
 		for (var i=0; i<enemy.length; i++)
 		{
-			if (!(bullet[j].y+20 < enemy[i].y || bullet[j].y > enemy[i].y+60 || bullet[j].x+20 < enemy[i].x || bullet[j].x-20 > enemy[i].x+40))
+			if (!(bullet[j].y+bullet[j].h < enemy[i].y || bullet[j].y > enemy[i].y+60 || bullet[j].x+bullet[j].w < enemy[i].x || bullet[j].x-20 > enemy[i].x+40))
 			{
-				//collision_effect(enemy[i].x,enemy[i].y,2);
+				collision_effect(enemy[i].x,enemy[i].y,2);
 				enemy.splice(i,1);
 				bullet.splice(j,1);
 				seagullDeath.play();
@@ -32,7 +32,7 @@ function collision_check()
 	{
 		if (!(player.y+50 < enemy_bullet[i].y || player.y+10 > enemy_bullet[i].y || player.x+60 < enemy_bullet[i].x || player.x > enemy_bullet[i].x))
 		{
-			// collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
+			collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
 			//score--;
 		   reduceLives();
 			enemy_bullet.splice(i,1);		  

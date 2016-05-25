@@ -23,7 +23,17 @@ function render_UI()
 				surface.fillText("2", 100,525);
 		surface.fillText("3", 150,525);
 		surface.beginPath();
-		switch (player.current_weapon)
+		var weapon_slot;
+		if (player.current_weapon == player.weapon_one)
+			weapon_slot = 1;
+		else if (player.current_weapon == player.weapon_two)
+			weapon_slot = 2;
+		else if (player.current_weapon == player.weapon_three)
+			weapon_slot = 3;
+		else
+			console.log("weapon slot error");
+		
+		switch (weapon_slot)
 		{
 			case 1:
 			surface.rect(50,500,25,25);

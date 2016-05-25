@@ -27,6 +27,8 @@ function playerMove(e)
 		case 40: // Down.
 			downPressed = true;
 		break;
+		
+	
 	}
 }
 
@@ -48,6 +50,21 @@ function playerStop(e)
 		
 		case 40: // Down.
 			downPressed = false;
+		break;
+		case 49:
+			if (player.weapon_one != 0)
+				player.current_weapon = player.weapon_one;
+			console.log(player.current_weapon);
+		break;
+		case 50:
+			if (player.weapon_two != 0)
+				player.current_weapon = player.weapon_two;
+			console.log(player.current_weapon);
+		break;
+		case 51:
+			if (player.weapon_three != 0)
+				player.current_weapon = player.weapon_three;
+			console.log(player.current_weapon);
 		break;
 	}
 }

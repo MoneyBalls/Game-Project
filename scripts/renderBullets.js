@@ -4,7 +4,7 @@ function render_bullets()
 	// Render player bullet
 	for (var b = 0; b < bullet.length; b++)
 	{
-		surface.drawImage(bulletImg, bullet[b].x, bullet[b].y);
+		surface.drawImage(bulletImg, bullet[b].x, bullet[b].y, bullet[b].w, bullet[b].h);
 		
 	}
     
