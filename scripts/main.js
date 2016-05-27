@@ -12,7 +12,7 @@
 	canvas.width = COLS*SIZE;
 	canvas.height = ROWS*SIZE;
 	
-	var uIval = setInterval(update, 33.34); 	//30fps
+	//var uIval = setInterval(update, 33.34); 	//30fps
 	var map = []; 			// = new Array(ROWS);
 	
 	var bgImage = new Image();
@@ -24,8 +24,75 @@
 	var pImage = new Image();
 	pImage.src = "img/bird.png";
 	player.image = pImage;
+
+
+//==========================================================================================
+//==========================================================================================
 	
-	initGame();
+	var teamLogoImage = new Image(); //Team logo for intro
+    teamLogoImage.src = "img/teamLogoImage.jpg";
+
+	var psyBirdLogoImage = new Image(); //Game Logo for intro AND Main Menu
+    psyBirdLogoImage.src = "img/psyBirdLogoImage.jpg";
+
+	var menuArrow = new Image(); //Arrow sprite for main menu navigation
+	menuArrow.src = "img/menuArrow.png";
+
+
+    //MAIN MENU BUTTONS
+
+	var startGameButton = new Image(); //START GAME BUTTON
+	startGameButton.src = "img/startGameButton.png";
+
+	var weaponShopButton = new Image(); //WEAPON SHOP BUTTON
+	weaponShopButton.src = "img/weaponShopButton.png";
+
+	var optionsButton = new Image(); //OPTIONS BUTTON
+	optionsButton.src = "img/optionsButton.png";
+
+    
+
+
+	    
+	    
+	    
+
+
+	function renderMainMenu() {
+
+	    surface.drawImage(psyBirdLogoImage, 0, 0, 800, 600);
+
+	    surface.drawImage(startGameButton, 270, 370, 250, 60);
+	    surface.drawImage(weaponShopButton, 270, 450, 250, 60);
+	    surface.drawImage(optionsButton, 265, 525, 250, 60);
+
+	}
+
+   
+	renderMainMenu();
+    
+
+	addEventListener("keyup", function (e) {
+
+
+	    if (e.keyCode == 49) {
+
+	        //clear screen??
+	        context.clearRect(0, 0, canvas.width, canvas.height);
+	        initGame();
+	    }
+
+
+	}, false);
+     
+	initGame;
+
+
+//====================================================================================
+//====================================================================================
+
+
+
 	
 function initGame()
 {
@@ -68,3 +135,4 @@ function scrollMap()
 function viewInfo() {
     document.getElementById("info").innerHTML = "ctrMax = " + ctrMax + "<br> idxMax = " + idxMax + "<br> bullet.speed = " + 24;
 }
+
