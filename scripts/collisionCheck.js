@@ -51,7 +51,7 @@ function collision_check()
 	{
 		if (!(player.y+50 < enemy[i].y || player.y+10 > enemy[i].y+40 || player.x+60 < enemy[i].x || player.x-10 > enemy[i].x+40))
 		{
-			collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
+			collision_effect(enemy[i].x,enemy[i].y, 2);
 			enemy[i].hp -= 10;
 			if (enemy[i].hp <= 0)
 				{
