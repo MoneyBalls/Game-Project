@@ -14,10 +14,7 @@
 	window.addEventListener("keydown", playerShoot);
 	window.addEventListener("keyup", playerStopShoot);
 	
-function player_Nbullet()  // Normal bullet
-{
-	bullet[bullet.length] = {width:7, height:7, xspeed:24, yspeed:0, x:player.x+60 , y:player.y+25 };
-}
+
 
 function playerShoot(e)
 {
@@ -34,6 +31,11 @@ function playerStopShoot(e)
 		zPressed = false;
 		bullet_trig = true;
 	}
+}
+
+function player_Nbullet()  // weapon id = 1
+{
+	bullet[bullet.length] = {name:"Normal", dmg: 2, type:"normal", w:25, h:15, xspeed:24, yspeed:0, x:player.x+60 , y:player.y+25};
 }
 
 function player_Spray()
@@ -57,18 +59,57 @@ function player_Spray()
 		yspd = Math.round(speed * Math.sin(rads));
 		
 		// bullet[bullet.length] = {width:7, height:7, xspeed:xspd, y:yspd, x:player.x+60, y:player.y+25 };
-		bullet[bullet.length] = {width:7, height:7, xspeed:xspd, yspeed:yspd, x:player.x+50+i*10 , y:player.y+25 };
+		bullet[bullet.length] = {name:"Shotgun", dmg: 1, type: "normal", w:15, h:10, xspeed:xspd, yspeed:yspd, x:player.x+50+i*10 , y:player.y+25};
 	}
 	
 }
 
+function player_cannon()
+{
+	var angle = 360;
+	var speed = 15;
+	
+    var rads = Math.PI/180 * angle;
+    var xspd= Math.round(speed * Math.cos(rads));
+    var yspd= Math.round(speed * Math.sin(rads));
+    
+    bullet[bullet.length] = {name:"Cannon", dmg:0.5, type: "pierce", w:140, h:110, x: player.x , y: player.y , xspeed: xspd, yspeed: yspd}; 
+}
+
+function player_fire()
+{
+	switch (player.current_weapon)
+	{
+		
+		case 1:
+		player_Nbullet();
+			break;
+			
+		case 2:
+		player_Spray();
+			break;
+			
+		case 3:
+		player_cannon();
+			break;
+		case 4: // and so on to add new weapons
+		break;
+		default:
+		console.log("faulty player.current_weap");
+		console.log(player.current_weapon);
+		break;
+		
+	}
+	
+}
 function playerBulletCheck()
 {
 	// player bullet generation
 	if ( zPressed == true && bullet_trig == true )
 	{
 		//console.log("fired");
-		player_Spray();
+		player_fire();
+		//player_Spray();
 		laser.play();
 		//player_Nbullet();
 		bullet_trig = false;

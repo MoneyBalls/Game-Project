@@ -18,7 +18,11 @@
 	var bgImage = new Image();
 	bgImage.src = "img/purple_woods.jpg";
 	
-	var player = {x:SIZE*2, y:SIZE*3, speed:10, dX:0, dY:0, image:null};
+	var player = {x:SIZE*2, y:SIZE*3, speed:10, 
+              dX:0, dY:0, image:null, current_weapon:1, weapon_one:0, weapon_two:0, weapon_three:0};
+	player.weapon_one = 1;
+	player.weapon_two = 2;
+	player.weapon_three = 3;
 	var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
 	
 	var pImage = new Image();
