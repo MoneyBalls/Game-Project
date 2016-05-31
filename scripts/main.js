@@ -28,8 +28,10 @@
 	var pImage = new Image();
 	pImage.src = "img/bird.png";
 	player.image = pImage;
-	
+		var pickups = [];
+		
 	initGame();
+	
 	
 function initGame()
 {
@@ -50,7 +52,7 @@ function update() // Going to run 30fps
 	collision_check();
 	player_animation();
 	enemy_animation();
-	
+	coin_animation()
 	// animate sprites
 	effect_animation();
 	render_main();

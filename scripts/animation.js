@@ -50,3 +50,18 @@ function effect_animation()
 	    coll_effect[i].frameCtr++;
 	}
 }
+
+function coin_animation() {
+    for (var i = 0 ; i < pickups.length; i++) {
+
+        if (pickups[i].frameCtr == pickups[i].ctrMax) {
+            pickups[i].frameCtr = 0;
+            pickups[i].spriteIdx++;
+
+            if (pickups[i].spriteIdx == pickups[i].idxMax)
+                pickups[i].spriteIdx = 0;
+            continue;
+        }
+        pickups[i].frameCtr++;
+    }
+}

@@ -18,6 +18,13 @@ function render_main()
 		surface.drawImage(enemy[i].image, enemy[i].spriteIdx*62, 0 , 62, 52, enemy[i].x, enemy[i].y,70,70);
 	}
 	
+	// Render pickups.
+	for (var i = 0; i < pickups.length; i++) {
+
+	    surface.drawImage(pickups[i].img, pickups[i].spriteIdx * 32, 0, 32, 32, pickups[i].x, pickups[i].y, 40, 40);
+	}
+
+	
 	render_bullets();
 	render_UI();
 }

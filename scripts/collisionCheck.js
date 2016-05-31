@@ -22,6 +22,12 @@ function collision_check()
 				enemy[i].hp -= bullet[j].dmg;
 				if (enemy[i].hp <= 0)
 				{
+					var tempPU = { img: null, x: 0, y: 0, frameCtr: 0, ctrMax: 2, spriteIdx: 0, idxMax: 7 };
+				    tempPU.img = new Image();
+				    tempPU.img.src = "img/pickup.png";
+				    tempPU.x = enemy[i].x;
+				    tempPU.y = enemy[i].y;
+				    pickups.push(tempPU);
 				enemy.splice(i,1);
 				seagullDeath.play();
 				}
@@ -55,6 +61,12 @@ function collision_check()
 			enemy[i].hp -= 10;
 			if (enemy[i].hp <= 0)
 				{
+					var tempPU = { img: null, x: 0, y: 0, frameCtr: 0, ctrMax: 2, spriteIdx: 0, idxMax: 7 };
+				    tempPU.img = new Image();
+				    tempPU.img.src = "img/pickup.png";
+				    tempPU.x = enemy[i].x;
+				    tempPU.y = enemy[i].y;
+				    pickups.push(tempPU);
 				enemy.splice(i,1);
 				seagullDeath.play();
 				}
@@ -62,7 +74,18 @@ function collision_check()
 			
 		}	  
 	}
-    
+     // player & coin
+    for (var i = 0; i < pickups.length; i++) {
+        if (!(player.y > pickups[i].y + 50 || //Player.top > Pickup.bottom
+			   player.y + 50 < pickups[i].y || // Player.bottom < Pickup.top
+			   player.x > pickups[i].x + 50 || // Player.left > Pickup.right
+			   player.x + 50 < pickups[i].x)) // Player.right < Pickup.left				
+        { // runs if colliding.
+            pickups.splice(i, 1);
+            score++;
+
+        }
+    }
 }
 
 function collision_effect(x,y, color) /* 1 for blue, 2 for orange */
