@@ -15,61 +15,29 @@
 	var uIval = setInterval(update, 33.34); 	//30fps
 	var map = []; 			// = new Array(ROWS);
 	
-	var player = {x:SIZE*2, y:SIZE*3, speed:10, dX:0, dY:0, image:null, current_weapon:1, weapon_one:0, weapon_two:0, weapon_three:0};
+	var bgImage = new Image();
+	bgImage.src = "img/purple_woods.jpg";
+	
+	var player = {x:SIZE*2, y:SIZE*3, speed:10, 
+              dX:0, dY:0, image:null, current_weapon:1, weapon_one:0, weapon_two:0, weapon_three:0};
 	player.weapon_one = 1;
 	player.weapon_two = 2;
 	player.weapon_three = 3;
 	var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
 	
-	var bgImage = new Image();
-	bgImage.src = "img/purple_woods.jpg";
-	
 	var pImage = new Image();
 	pImage.src = "img/bird.png";
 	player.image = pImage;
+		var pickups = [];
+		
+	initGame();
 	
-	var stageSound = new Audio();
-	stageSound.src = "sound/sf5ken.mp3";	
 	
-var enemyGun = new Audio();
-	enemyGun.src = "sound/shooter.wav";
-	
-	//var checkEnemyArray = setInterval(viewInfo, 700);	//Strictly for debugging and checking enemyArray to see if it properly deletes the objects of the array (it does).
-	initLevelOne();
-	
-	var levelTwoButton = document.getElementById("levelTwo_button");
-	levelTwoButton.addEventListener("click", initLevelTwo);	//Button transition betweens levels for now.
-	
-	var currentLevel = 1;	//Just to keep track on the level and adjust the code accordingly.
-	
-function initLevelOne()
+function initGame()
 {
+	//generateMap();
 	map[0] = {image:bgImage, x:0};
 	map[1] = {image:bgImage, x:800};
-	levelChecker();
-	
-	stageSound.currentTime = 0;
-	stageSound.play();
-	stageSound.loop = true;
-}
-
-function initLevelTwo()
-{
-	bgImage.src = "img/maxresdefault.jpg";
-	currentLevel = 2;
-	levelChecker();
-	
-	stageSound.currentTime = 0;
-	stageSound.play();
-	stageSound.loop = true;
-}
-
-function initLevelThree()
-{
-	currentLevel = 3;
-	levelChecker();
-	stageSound.play();
-	stageSound.loop = true;
 }
 
 function update() // Going to run 30fps
@@ -84,7 +52,7 @@ function update() // Going to run 30fps
 	collision_check();
 	player_animation();
 	enemy_animation();
-	
+	coin_animation()
 	// animate sprites
 	effect_animation();
 	render_main();
@@ -103,7 +71,6 @@ function scrollMap()
     }
 }
 
-function viewInfo() 
-{
-    console.log(enemy);
+function viewInfo() {
+    document.getElementById("info").innerHTML = "ctrMax = " + ctrMax + "<br> idxMax = " + idxMax + "<br> bullet.speed = " + 24;
 }

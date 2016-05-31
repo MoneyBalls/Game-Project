@@ -8,18 +8,18 @@
 	
 	var bullet_trig = true;
 	
-	var laser = new Audio();
-	laser.src = "sound/laser.wav";
+	var playerBlaster = new Audio();
+	playerBlaster.src = "sound/blaster.wav";
 	
 	window.addEventListener("keydown", playerShoot);
 	window.addEventListener("keyup", playerStopShoot);
-	
-
 
 function playerShoot(e)
 {
 	if (e.keyCode == 90)
 	{
+		playerBlaster.play();
+		playerBlaster.currentTime = 0;
 		zPressed = true;
 	}
 }
@@ -110,7 +110,6 @@ function playerBulletCheck()
 		//console.log("fired");
 		player_fire();
 		//player_Spray();
-		laser.play();
 		//player_Nbullet();
 		bullet_trig = false;
 	}
