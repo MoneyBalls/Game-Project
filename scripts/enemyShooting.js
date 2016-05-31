@@ -7,23 +7,40 @@
 function fire_Circlebullet(i, speed)
 {
 	var angle;
-	for (var j = 0; j < 360; j +=10)
-	{	
-		bullet_generation( i, j, speed);
+	
+	//Depending on the level, each enemy will have different bullet patterns.
+	if (currentLevel == 1)	
+	{
+		for (var j = 0; j < 360; j += 18)
+		{	
+			bullet_generation(i, j, speed);
+		}
 	}
 	
+	if (currentLevel == 2)
+	{
+		for (var j = 150; j < 200; j += 10)
+		{	
+			bullet_generation(i, j, speed);
+		}
+	}
+	
+	if (currentLevel == 3)
+	{
+		
+	}
 }
 
 function fire_Nbullet(speed)
 {
-	bullet_generation( enemy.length-1, 155, speed);
-	bullet_generation( enemy.length-1, 170, speed);
-	bullet_generation( enemy.length-1, 180, speed);
-	bullet_generation( enemy.length-1, 190, speed);
-	bullet_generation( enemy.length-1, 205, speed);
+	bullet_generation(enemy.length - 1, 155, speed);
+	bullet_generation(enemy.length - 1, 170, speed);
+	bullet_generation(enemy.length - 1, 180, speed);
+	bullet_generation(enemy.length - 1, 190, speed);
+	bullet_generation(enemy.length - 1, 205, speed);
 }
 
-function bullet_generation( i, angle, speed)
+function bullet_generation(i, angle, speed)
 {
     var rads = Math.PI/180 * angle;
     var xspd= Math.round(speed * Math.cos(rads));
