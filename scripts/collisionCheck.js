@@ -12,17 +12,24 @@
 function collision_check()
 {
     //Player bullet & Enemy
-	for (var j=0; j<bullet.length; j++)
+	for (var j = 0; j < bullet.length; j++)
 	{
-		for (var i=0; i<enemy.length; i++)
+		for (var i = 0; i < enemy.length; i++)
 		{
-			if (!(bullet[j].y+20 < enemy[i].y || bullet[j].y > enemy[i].y+60 || bullet[j].x+20 < enemy[i].x || bullet[j].x-20 > enemy[i].x+40))
+			if (!(bullet[j].y + bullet[j].h < enemy[i].y || bullet[j].y > enemy[i].y + 60 || bullet[j].x+bullet[j].w < enemy[i].x || bullet[j].x - 20 > enemy[i].x + 40))
 			{
-				//collision_effect(enemy[i].x,enemy[i].y,2);
-				enemy.splice(i,1);
-				bullet.splice(j,1);
-				seagullDeath.play();
-				score++;
+				collision_effect(enemy[i].x, enemy[i].y, 2);
+				enemy[i].hp -= bullet[j].dmg;
+				if (enemy[i].hp <= 0)
+				{
+					enemy.splice(i, 1);
+					seagullDeath.play();
+					score++;
+				}
+				if (!(bullet[j].type == "pierce"))
+				{
+					bullet.splice(j, 1);
+				}
 			}
 		}
 	}
@@ -30,26 +37,37 @@ function collision_check()
 	//Player & Enemy bullet
 	for (var i = 0; i < enemy_bullet.length; i++)
 	{
-		if (!(player.y+50 < enemy_bullet[i].y || player.y+10 > enemy_bullet[i].y || player.x+60 < enemy_bullet[i].x || player.x > enemy_bullet[i].x))
+		if (!(player.y + 50 < enemy_bullet[i].y || player.y + 10 > enemy_bullet[i].y || player.x + 60 < enemy_bullet[i].x || player.x > enemy_bullet[i].x))
 		{
-			// collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
-			//score--;
-		   reduceLives();
-			enemy_bullet.splice(i,1);		  
+			collision_effect(enemy_bullet[i].x, enemy_bullet[i].y, 2);
+			reduceLives();
+			enemy_bullet.splice(i, 1);		  
 		}	  
 	}
     
     //Player & Enemy
     for (var i = 0; i < enemy.length; i++)
 	{
-		if (!(player.y+50 < enemy[i].y || player.y+10 > enemy[i].y+40 || player.x+60 < enemy[i].x || player.x-10 > enemy[i].x+40))
+		if (!(player.y + 50 < enemy[i].y || player.y + 10 > enemy[i].y + 40 || player.x + 60 < enemy[i].x || player.x-10 > enemy[i].x+40))
 		{
-			// collision_effect(enemy_bullet[i].x,enemy_bullet[i].y, 2);
-			// score--;
+			collision_effect(enemy[i].x, enemy[i].y, 2);
+			enemy[i].hp -= 10;
+			if (enemy[i].hp <= 0)
+			{
+				enemy.splice(i, 1);
+				seagullDeath.play();
+				score++;
+			}
 			reduceLives(); 
-			enemy_bullet.splice(i,1);	  
-		}	  
+			
+		}
+		
+		if (enemy[i].x < -100)
+		{
+			enemy.splice(i, 1);
+		}
 	}
+	
     
 }
 

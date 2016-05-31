@@ -1,5 +1,5 @@
 	
-	var playerLives = 3; //var for player lives set to 3. 
+	var playerLives = 999; //var for player lives set to 3. 
 
 function reduceLives()
 {
@@ -17,5 +17,7 @@ function reduceLives()
 function death()
 {	
 	clearInterval(uIval);
+	clearTimeout(enemyint); //Stops enemies from spawning.
+	stageSound.pause();
 	alert("Your score was " + score);
 }
