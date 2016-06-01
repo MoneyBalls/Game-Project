@@ -18,7 +18,7 @@ function playerShoot(e)
 {
 	if (e.keyCode == 90)
 	{
-		playerBlaster.play();
+		
 		playerBlaster.currentTime = 0;
 		zPressed = true;
 	}
@@ -35,6 +35,7 @@ function playerStopShoot(e)
 
 function player_Nbullet()  // weapon id = 1
 {
+	playerBlaster.play();
 	bullet[bullet.length] = {name:"Normal", dmg: 2, type:"normal", w:25, h:15, xspeed:24, yspeed:0, x:player.x+60 , y:player.y+25};
 }
 
@@ -47,7 +48,7 @@ function player_Spray()
 	var xspd;
 	var yspd;
 	var angle;
-	
+	playerBlaster.play();
 	for (var i = 0; i < 5; i++)
 	{
 		
@@ -59,7 +60,7 @@ function player_Spray()
 		yspd = Math.round(speed * Math.sin(rads));
 		
 		// bullet[bullet.length] = {width:7, height:7, xspeed:xspd, y:yspd, x:player.x+60, y:player.y+25 };
-		bullet[bullet.length] = {name:"Shotgun", dmg: 1, type: "normal", w:15, h:10, xspeed:xspd, yspeed:yspd, x:player.x+50+i*10 , y:player.y+25};
+		bullet[bullet.length] = {name:"Shotgun", dmg: 2, type: "normal", w:15, h:10, xspeed:xspd, yspeed:yspd, x:player.x+50+i*10 , y:player.y+25};
 	}
 	
 }
@@ -73,7 +74,7 @@ function player_cannon()
     var xspd= Math.round(speed * Math.cos(rads));
     var yspd= Math.round(speed * Math.sin(rads));
     
-    bullet[bullet.length] = {name:"Cannon", dmg:0.5, type: "pierce", w:140, h:110, x: player.x , y: player.y , xspeed: xspd, yspeed: yspd}; 
+    bullet[bullet.length] = {name:"Cannon", dmg:3, type: "pierce", w:140, h:110, x: player.x , y: player.y , xspeed: xspd, yspeed: yspd}; 
 }
 
 function player_fire()

@@ -6,9 +6,9 @@
 	var seagullImage = new Image();
 	seagullImage.src = "img/enemy_seagull.png";	
 	
-	setTimeout(enemy_gen, 200);	//Starts to spawn enemies (in this case) 0.2 seconds after the level starts.
-	enemyint = setInterval(enemy_gen, 700);	//Starts spawning enemies every (in this case) 0.7 seconds.
-	enemySpawnMax = 35;	//Maximum amount of enemies that spawn.
+	//setTimeout(enemy_gen, 200);	//Starts to spawn enemies (in this case) 0.2 seconds after the level starts.
+	//enemyint = setInterval(enemy_gen, 700);	//Starts spawning enemies every (in this case) 0.7 seconds.
+	//enemySpawnMax = 35;	//Maximum amount of enemies that spawn.
 	
 function enemy_gen()
 {
@@ -25,7 +25,7 @@ function enemy_gen()
 		clearInterval(enemyint);
 	}
 	
-	console.log(enemySpawnMax);
+	//console.log(enemySpawnMax);
 	//fire_Nbullet(15);
 	//setTimeout(fire_Nbullet,500,15);	
 }
