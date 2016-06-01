@@ -4,9 +4,11 @@
 	var upPressed = false;
 	var downPressed = false;
 	var zPressed = false;
-	
+	var canPress = true;
 	window.addEventListener("keydown", playerMove);
 	window.addEventListener("keyup", playerStop);
+	window.addEventListener("keydown", menuinput_down);
+	window.addEventListener("keyup", menuinput_up);
 	
 function playerMove(e)
 {
@@ -14,6 +16,7 @@ function playerMove(e)
 	{
 		case 37: // Left.
 			leftPressed = true;
+			console.log("left");
 		break;
 		
 		case 39: // Right.
@@ -38,10 +41,12 @@ function playerStop(e)
 	{
 		case 37: // Left.
 			leftPressed = false;
+			canPress = true;
 		break;
 		
 		case 39: // Right.
 			rightPressed = false;
+			canPress = true;
 		break;
 		
 		case 38: // Up.
@@ -82,4 +87,184 @@ function movePlayer()
 	
 	if ( downPressed == true && player.y < 600 - 60)
 		player.y += player.speed;
+}
+
+
+function menuinput_down(e)
+{
+	switch(e.keyCode)
+	{
+		case 38: // Up.
+			upPressed = true;
+			
+		break;
+		case 40: // Down.
+		
+			downPressed = true;
+			
+		break;
+		case 90:
+			zPressed = true;
+			
+		break;
+	
+	}
+}
+
+function menuinput_up(e)
+{
+	switch(e.keyCode)
+	{
+			
+		case 38: // Up.
+			upPressed = false;
+			canPress = true;
+		break;
+		case 40: // Down.
+		
+			downPressed = false;
+			canPress = true;
+		break;
+		case 90:
+			zPressed = false;
+			canPress = true;
+		break;
+	}	
+	}
+
+
+function menumove()
+{
+		
+	if ( upPressed == true && mainmenu_option > 0 && canPress == true)
+	{
+		mainmenu_option --;
+		canPress = false;
+	}
+	
+	if ( downPressed == true && mainmenu_option < 2 && canPress == true)
+	{
+		mainmenu_option ++;
+		canPress =false;
+	}
+	
+	if ( zPressed == true && canPress == true)
+	{
+		switch (mainmenu_option)
+		{
+			case 0:
+			call_mapselect();
+			
+			canPress = false;
+			break;
+			case 1:
+			call_weaponshop();
+			state = "weaponshop";
+			canPress = false;
+			break;
+			case 2:
+			call_option();
+			state = "option";
+			canPress = false;
+			break;
+		}
+	}
+}
+
+function shopmove()
+{
+	if ( upPressed == true && shop_option > 1 && canPress == true)
+	{
+		shop_option --;
+		canPress = false;
+	}
+	
+	if ( downPressed == true && shop_option < 4 && canPress == true)
+	{
+		shop_option ++;
+		canPress =false;
+	}
+	
+	if ( zPressed == true && canPress == true)
+	{
+		switch (shop_option)
+		{
+			case 1:
+				
+			canPress = false;
+			break;
+			case 2:
+			
+			canPress = false;
+			break;
+			case 3:
+			
+			if (coin >= weapon[shop_option].price)
+			{
+			weapon[shop_option].price = 0;
+			
+			player.weapon_three = 3;
+			
+			}
+			canPress = false;
+			
+			break;
+			case 4:
+			canPress = false;
+			call_mainmenu();
+			console.log(shop_option);
+			break;
+			
+		}
+	} 
+}
+function mapmove()
+{
+	if ( leftPressed == true && mapselect_option > 0 && canPress == true)
+	{
+		mapselect_option --;
+		canPress = false;
+	}
+	
+	if ( rightPressed == true && mapselect_option < 4 && canPress == true)
+	{
+		mapselect_option ++;
+		canPress =false;
+	}
+	
+	if ( zPressed == true && canPress == true)
+	{
+		switch (mapselect_option)
+		{
+			case 0:
+			if (unlockedlevel > mapselect_option)
+			{
+			currentLevel = 1;
+			state = "ingame";
+			call_ingame();
+			}
+			canPress = false;
+			break;
+			case 1:
+			if (unlockedlevel > mapselect_option)
+			{
+			currentLevel =2;
+			state = "ingame";
+			
+			call_ingame();
+			}
+			canPress = false;
+			break;
+			case 2:
+			if (unlockedlevel > mapselect_option)
+			{
+			currentLevel = 3;
+			state = "ingame";
+			call_ingame();
+			}
+			canPress = false;
+			
+			break;
+		}
+	}
 }

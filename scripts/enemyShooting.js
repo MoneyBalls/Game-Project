@@ -9,7 +9,7 @@ function fire_Circlebullet(i, speed)
 	var angle;
 	
 	//Depending on the level, each enemy will have different bullet patterns.
-	if (currentLevel == 1)	
+	if (currentLevel == 2)	
 	{
 		for (var j = 0; j < 360; j += 18)
 		{	
@@ -17,7 +17,7 @@ function fire_Circlebullet(i, speed)
 		}
 	}
 	
-	if (currentLevel == 2)
+	if (currentLevel == 1)
 	{
 		for (var j = 150; j < 200; j += 10)
 		{	
