@@ -2,7 +2,11 @@
 	var stage = document.getElementById("stage");
 	var canvas = document.querySelector("canvas");
 	var surface = canvas.getContext("2d"); // d is lowercase!
-
+	var lz = 0; //0 eng 1chinese;
+	var wScore =[];
+		wScore[0] = "Score";
+		wScore[1] = "ddhinese";
+		wScore[2] = "Korea";
 	var state = "mainmenu"; // mainmenu, weaponshop, ingame, option
 	var coin = 0;
 	var tempPU = { img:null, x:0, y:0, frameCtr:0, ctrMax:2, spriteIdx:0, idxMax:7};
@@ -105,8 +109,11 @@ function initLevelTwo()
 
 function initLevelThree()
 {
+	bgImage.src = "img/level3bg.png";
 	currentLevel = 3;
 	levelChecker();
+	
+	stageSound.currentTime = 0;
 	stageSound.play();
 	stageSound.loop = true;
 }
@@ -143,6 +150,10 @@ function call_ingame()
 	initializer();
 	if (currentLevel==2)
 	{initLevelTwo();
+	}
+	if (currentLevel==3)
+	{
+		initLevelThree();
 	}
 	initLevelOne();
 	

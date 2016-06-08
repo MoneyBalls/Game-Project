@@ -201,6 +201,7 @@ function shopmove()
 			
 			if (coin >= weapon[shop_option].price)
 			{
+			coin -= weapon[shop_option].price;
 			weapon[shop_option].price = 0;
 			
 			player.weapon_three = 3;
