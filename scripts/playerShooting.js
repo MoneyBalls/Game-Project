@@ -77,6 +77,10 @@ function player_cannon()
     bullet[bullet.length] = {name:"Cannon", dmg:3, type: "pierce", w:140, h:110, x: player.x , y: player.y , xspeed: xspd, yspeed: yspd}; 
 }
 
+function player_homing()
+{
+	
+}
 function player_fire()
 {
 	switch (player.current_weapon)
@@ -84,6 +88,7 @@ function player_fire()
 		
 		case 1:
 		player_Nbullet();
+		
 			break;
 			
 		case 2:

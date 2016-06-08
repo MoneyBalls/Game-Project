@@ -61,7 +61,7 @@ function render_UI()
 function initializer()
 {
 	surface.clearRect(0, 0, canvas.width, canvas.height); 
-	playerLives = 10;
+	playerLives = 44;
 	player.x = 50;
 	player.y = 300;
 	bossexit=false;

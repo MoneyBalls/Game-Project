@@ -105,8 +105,11 @@ function initLevelTwo()
 
 function initLevelThree()
 {
+	bgImage.src = "img/level3bg.png";
 	currentLevel = 3;
 	levelChecker();
+	
+	stageSound.currentTime = 0;
 	stageSound.play();
 	stageSound.loop = true;
 }
@@ -143,6 +146,10 @@ function call_ingame()
 	initializer();
 	if (currentLevel==2)
 	{initLevelTwo();
+	}
+	if (currentLevel==3)
+	{
+		initLevelThree();
 	}
 	initLevelOne();
 	
