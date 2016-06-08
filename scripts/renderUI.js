@@ -9,7 +9,7 @@ function render_UI()
 
 	// Render score
 	surface.font="30px Verdana";
-	surface.fillText("Score:", 600,50);
+	surface.fillText(wScore[lz], 600,50);
 	surface.fillText(score, 750, 50);
 
 	// Render lives
@@ -61,7 +61,7 @@ function render_UI()
 function initializer()
 {
 	surface.clearRect(0, 0, canvas.width, canvas.height); 
-	playerLives = 10;
+	playerLives = 44;
 	player.x = 50;
 	player.y = 300;
 	bossexit=false;
