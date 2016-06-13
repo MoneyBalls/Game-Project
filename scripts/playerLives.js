@@ -41,6 +41,6 @@ function death_msg()
 	surface.fillStyle = "RGBA(0,0,0,0.3)";
 	surface.fillRect(0,180,800,200);
 	surface.fillStyle = "White";
-	surface.fillText(wDead[lz], 320,290);
+	surface.fillText("You are dead", 320,290);
 	surface.fillStyle = "Black";
 }
