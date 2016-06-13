@@ -2,11 +2,6 @@
 	var stage = document.getElementById("stage");
 	var canvas = document.querySelector("canvas");
 	var surface = canvas.getContext("2d"); // d is lowercase!
-	var lz = 0; //0 eng 1chinese;
-	var wScore =[];
-		wScore[0] = "Score";
-		wScore[1] = "ddhinese";
-		wScore[2] = "Korea";
 	var state = "mainmenu"; // mainmenu, weaponshop, ingame, option
 	var coin = 0;
 	var tempPU = { img:null, x:0, y:0, frameCtr:0, ctrMax:2, spriteIdx:0, idxMax:7};
@@ -42,8 +37,8 @@
 		weapon[3] = {price:1};
 	
 	var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
-	var mapselImage = new Image();
-		mapselImage.src = "img/level-selection.png";
+	var mapselImage = mapselImage[lz];
+		//mapselImage.src = "img/level-selection.png";
 	var bgImage = new Image();
 		bgImage.src = "img/purple_woods.jpg";
 	var unlockedlevel = 1;
@@ -59,8 +54,8 @@
 	
 	var enemyGun = new Audio();
 		enemyGun.src = "sound/shooter.wav";
-	var menuImage = new Image();
-		menuImage.src = "img/mainmenu.png";
+	var menuImage = menuImage[lz];
+		//menuImage.src = wMenuImage.src;
 	
 	//var checkEnemyArray = setInterval(viewInfo, 700);	//Strictly for debugging and checking enemyArray to see if it properly deletes the objects of the array (it does).
 	
