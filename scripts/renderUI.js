@@ -14,12 +14,12 @@ function render_UI()
 
 	// Render lives
 	surface.font = "30px Verdana";
-	surface.fillText("Lives: ", 50, 50);
+	surface.fillText(wLives[lz], 50, 50);
 	surface.fillText(playerLives, 200, 50);
 	
 	// Coin
 	surface.font = "30px Verdana";
-	surface.fillText("Coins: ", 400,50);
+	surface.fillText(wCoins[lz], 400,50);
 	surface.fillText(coin,550,50);
 	// Render Weapon UI
 		surface.font = "20px Verdana";
@@ -118,7 +118,7 @@ function win_msg()
 	surface.fillStyle = "RGBA(0,200,200,0.8)";
 	surface.fillRect(0,180,800,200);
 	surface.fillStyle = "White";
-	surface.fillText("Stage Cleared", 310,280);
+    surface.fillText(wClear[lz], 310,280);
 	surface.fillStyle = "Black";
 }
 function weaponshop_render()
@@ -132,19 +132,19 @@ function weaponshop_render()
 	//surface.fillRect(0,0,800,600);
 	
 	surface.fillStyle="black";
-	surface.fillText("Coins:", 100,50);
+	surface.fillText(wCoins[lz], 100,50);
 	surface.fillText(coin,200,50);
 	
-	surface.fillText("Gun 1",200,200);
-	surface.fillText("Gun 2",200,250);
-	surface.fillText("Gun 3",200,300);
-	surface.fillText("Price",350,150);
+	surface.fillText(wGun1[lz],200,200);
+	surface.fillText(wGun2[lz],200,250);
+	surface.fillText(wGun3[lz],200,300);
+	surface.fillText(wPrice[lz],350,150);
 	surface.drawImage(menuImage, 758,0,55,60,140,100+shop_option*50,60,60);
 	for (var i = 1; i < 4; i++)
 	{
 	if (weapon[i].price == 0)
 	{
-		surface.fillText("Owned", 350,150+i*50);
+		surface.fillText(wOwned[lz], 350,150+i*50);
 	}
 	else 
 	{
@@ -152,7 +152,7 @@ function weaponshop_render()
 	}
 	
 	}
-	surface.fillText("Back",200,350);
+	surface.fillText(wBack[lz],200,350);
 	
 }
 function mapselect_render()
