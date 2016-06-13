@@ -14,18 +14,21 @@ function render_UI()
 
 	// Render lives
 	surface.font = "30px Verdana";
-	surface.fillText(wLives[lz], 50, 50);
+	surface.fillText("Lives: ", 50, 50);
 	surface.fillText(playerLives, 200, 50);
 	
 	// Coin
 	surface.font = "30px Verdana";
-	surface.fillText(wCoins[lz], 400,50);
+	surface.fillText("Coins: ", 400,50);
 	surface.fillText(coin,550,50);
 	// Render Weapon UI
 		surface.font = "20px Verdana";
-		surface.fillText("1", 50,525);
-				surface.fillText("2", 100,525);
-		surface.fillText("3", 150,525);
+		surface.fillText("1", 30, 475);
+		surface.fillText("2", 30, 515);
+		surface.fillText("3", 30, 555);
+		surface.fillText(weapon[player.weapon_one].name, 50,475);
+		surface.fillText(weapon[player.weapon_two].name, 50,515);
+		surface.fillText(weapon[player.weapon_three].name, 50,555);
 		surface.beginPath();
 		var weapon_slot;
 		if (player.current_weapon == player.weapon_one)
@@ -40,13 +43,13 @@ function render_UI()
 		switch (weapon_slot)
 		{
 			case 1:
-			surface.rect(50,500,25,25);
+			surface.rect(30,455,110,25);
 			break;
 			case 2:
-			surface.rect(100,500,25,25);
+			surface.rect(30,495,110,25);
 			break;
 			case 3:
-			surface.rect(150,500,25,25);
+			surface.rect(30,535,110,25);
 			break;
 			default:
 			console.log("No weapon");
@@ -118,7 +121,7 @@ function win_msg()
 	surface.fillStyle = "RGBA(0,200,200,0.8)";
 	surface.fillRect(0,180,800,200);
 	surface.fillStyle = "White";
-    surface.fillText(wClear[lz], 310,280);
+	surface.fillText("Stage Cleared", 310,280);
 	surface.fillStyle = "Black";
 }
 function weaponshop_render()
@@ -126,33 +129,34 @@ function weaponshop_render()
 	
 	surface.clearRect(0,0,800,600);
 	surface.drawImage(shopImage,0,0,800,600);
-	surface.fillStyle="RGBA(200,200,200,0.3)";
-	surface.fillRect(100,100,600,350);
+	surface.fillStyle= "RGBA(0,0,0,0.5)";
+	surface.fillRect(100,100,600,400);
+	surface.fillStyle = "RGBA(255,255,255,0.7)";
 	surface.font = "30px Verdana";
-	//surface.fillRect(0,0,800,600);
+	surface.fillText("Weapon Shop", 300, 50);
+	surface.fillText("Coins:", 550,90);
+	surface.fillText(coin,650,90);
 	
-	surface.fillStyle="black";
-	surface.fillText(wCoins[lz], 100,50);
-	surface.fillText(coin,200,50);
-	
-	surface.fillText(wGun1[lz],200,200);
-	surface.fillText(wGun2[lz],200,250);
-	surface.fillText(wGun3[lz],200,300);
-	surface.fillText(wPrice[lz],350,150);
+	surface.fillText(weapon[1].name,200,200);
+	surface.fillText(weapon[2].name,200,250);
+	surface.fillText(weapon[3].name,200,300);
+	surface.fillText(weapon[4].name,200,350);
+	surface.fillText(weapon[5].name,200,400);
+	surface.fillText("Price",450,150);
 	surface.drawImage(menuImage, 758,0,55,60,140,100+shop_option*50,60,60);
 	for (var i = 1; i < 4; i++)
 	{
-	if (weapon[i].price == 0)
+	if (weapon[i].price == "Owned")
 	{
-		surface.fillText(wOwned[lz], 350,150+i*50);
+		surface.fillText("Owned", 450,150+i*50);
 	}
 	else 
 	{
-		surface.fillText(weapon[i].price, 350,150+i*50);
+		surface.fillText(weapon[i].price,450,150+i*50);
 	}
 	
 	}
-	surface.fillText(wBack[lz],200,350);
+	surface.fillText("Back",200,450);
 	
 }
 function mapselect_render()
@@ -167,4 +171,25 @@ function mapselect_render()
 		
 	}
 	
+}
+function option_render() 						// Localization needed.
+{
+	surface.drawImage(optionImage,0,0,800,600);
+	surface.fillStyle= "RGBA(0,0,0,0.5)";
+	surface.fillRect(100,100,600,400);
+	surface.fillStyle = "RGBA(255,255,255,0.7)";
+	surface.font = "30px Verdana";
+	
+
+	surface.fillText("Option", 350, 50);
+	surface.fillText("Language", 200, 200 );
+	surface.fillText("BGM", 200, 250);
+	surface.fillText("Effect", 200, 300);
+	surface.fillText("Back",200,350);
+	surface.fillRect(450, 220, bgm_volume * 2,30);
+	surface.fillRect(450, 270, effect_volume * 2,30);
+	surface.fillText(LocalLanguage[lz], 450,200);
+	
+		surface.drawImage(menuImage, 758,0,55,60,140,100+option_option*50,60,60);
+
 }

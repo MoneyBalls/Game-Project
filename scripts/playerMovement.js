@@ -179,7 +179,7 @@ function shopmove()
 		canPress = false;
 	}
 	
-	if ( downPressed == true && shop_option < 4 && canPress == true)
+	if ( downPressed == true && shop_option < 6 && canPress == true)
 	{
 		shop_option ++;
 		canPress =false;
@@ -210,7 +210,7 @@ function shopmove()
 			canPress = false;
 			
 			break;
-			case 4:
+			case 6:
 			canPress = false;
 			call_mainmenu();
 			console.log(shop_option);
@@ -268,4 +268,102 @@ function mapmove()
 			break;
 		}
 	}
+}
+
+
+function optionmove()
+{
+	if ( upPressed == true && option_option > 1 && canPress == true)
+	{
+		option_option --;
+		canPress = false;
+	}
+	
+	if ( downPressed == true && option_option < 4 && canPress == true)
+	{
+		option_option ++;
+		canPress =false;
+	}
+	
+	if ( leftPressed == true && option_option == 1 && canPress == true)
+	{
+		if (lz==1)
+		{
+			lz =0;
+		}
+		else
+		{
+			lz =1;
+		}
+		canPress=false;
+	}
+	
+		if ( rightPressed == true && option_option == 1 && canPress == true)
+	{
+		if (lz==1)
+		{
+			lz =0;
+		}
+		else
+		{
+			lz =1;
+		}
+		canPress=false;
+	}
+	
+	//bgm
+	
+	if (leftPressed == true  && canPress == true)
+	{
+		if (bgm_volume > 0 && option_option == 2)
+		{
+			bgm_volume -=5;
+			canPress=false;
+		}
+		
+		if (effect_volume > 0 && option_option == 3)
+		{
+			effect_volume -=5;
+			canPress=false;
+		}
+	}
+	
+	if (rightPressed == true && canPress ==true)
+	{
+		if (bgm_volume < 100 && option_option == 2)
+		{
+			bgm_volume += 10;
+			canPress=false;
+		}
+		if (effect_volume < 100 && option_option == 3)
+		{
+			effect_volume +=10;
+			canPress=false;
+		}
+	}
+	
+	if ( zPressed == true && canPress == true)
+	{
+		switch (option_option)
+		{
+			case 1:
+				
+			canPress = false;
+			break;
+			case 2:
+			
+			canPress = false;
+			break;
+			case 3:
+			
+			
+			break;
+			case 4:
+			canPress = false;
+			call_mainmenu();
+			console.log(shop_option);
+			break;
+			
+		}
+	} 
 }
