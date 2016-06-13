@@ -3,6 +3,9 @@
 	var canvas = document.querySelector("canvas");
 	var surface = canvas.getContext("2d"); // d is lowercase!
 	var lz = 0; //0 eng 1chinese;
+	var LocalLanguage = [];
+	    LocalLanguage[0] = "English";
+		LocalLanguage[1] = "Chinese";
 	var wScore =[];
 		wScore[0] = "Score";
 		wScore[1] = "ddhinese";
@@ -30,26 +33,32 @@
 	var option_interval;
 	var win_interval;
 	var death_interval;
+	var option_interval;
 	var map = []; 			// = new Array(ROWS);
 	var shop_option =1;
+	var option_option=1;
 	var player = {x:SIZE*2, y:SIZE*3, speed:10, dX:0, dY:0, image:null, current_weapon:1, weapon_one:0, weapon_two:0, weapon_three:0};
 		player.weapon_one = 1;
 		player.weapon_two = 2;
 		//player.weapon_three = 0;
 	var weapon = [];
-		weapon[1] = {price:0};
-		weapon[2] = {price:0};
-		weapon[3] = {price:1};
+		weapon[0] = {name: "N/A"};
+		weapon[1] = {name: "name 1",price:0};
+		weapon[2] = {name: "name 2",price:0};
+		weapon[3] = {name: "name 3", price:1};
+		weapon[4] = {name: "some name 4", price:1};
+		weapon[5] = {name: "some name 5", price:1};
 	
 	var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
 	var mapselImage = new Image();
-		mapselImage.src = "img/level-selection.png";
+		mapselImage.src = "img/level-selection2.png";
 	var bgImage = new Image();
 		bgImage.src = "img/purple_woods.jpg";
-	var unlockedlevel = 1;
-	
+	var unlockedlevel = 3;
+	var optionImage = new Image();
+	optionImage.src = "img/optionbg2.jpg";
 	var shopImage = new Image();
-		shopImage.src = "img/weaponshop.png";
+		shopImage.src = "img/level-selection.jpg";
 	var pImage = new Image();
 		pImage.src = "img/bird.png";
 		player.image = pImage;
@@ -61,6 +70,9 @@
 		enemyGun.src = "sound/shooter.wav";
 	var menuImage = new Image();
 		menuImage.src = "img/mainmenu.png";
+	
+	var bgm_volume=100;
+	var effect_volume=100;
 	
 	//var checkEnemyArray = setInterval(viewInfo, 700);	//Strictly for debugging and checking enemyArray to see if it properly deletes the objects of the array (it does).
 	
@@ -126,6 +138,7 @@ function clear_int()
 	clearInterval(death_interval);
 	clearInterval(win_interval);
 	clearInterval(shop_interval);
+	clearInterval(option_interval);
 	
 }
 function call_mainmenu()
@@ -136,12 +149,25 @@ function call_mainmenu()
 	mainmenu_interval = setInterval(menu_update, 33.34);
 }
 
+function pause()
+{
+	clearInterval(uIval);
+	
+}
+function return_pause()
+{
+	uIval = setInterval(update, 1000/fps); 	//30fps
+	
+}
+
 function call_mapselect()
 {
 	clear_int();
 	mapselect_interval = setInterval(mapselect_update, 33.34);
 	
 }
+
+
 function call_ingame()
 {
 	score = 0;
@@ -178,6 +204,17 @@ function shop_update()
 function call_option()
 {
 	console.log("option");
+	clear_int();
+	
+	option_interval = setInterval(option_update, 33);
+}
+
+function option_update()
+{
+	surface.clearRect(0,0,800,600);
+	optionmove();
+	option_render();
+	
 }
 function menu_update()
 {
