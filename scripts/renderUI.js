@@ -15,8 +15,22 @@ function render_UI()
 	// Render lives
 	surface.font = "30px Verdana";
 	surface.fillText(wLives[lz], 50, 50);
-	surface.fillText(playerLives, 200, 50);
+	surface.fillStyle="RGBA(55,55,55,1)";
+	surface.fillRect(130,25,maxLives*15,25);
+	if ((playerLives/maxLives) < 0.3)
+	{
+	surface.fillStyle= "RGBA(222,0,0,1)";
+	surface.fillRect(130,25, playerLives*15,25);
+	}
+	else
+	{
+		
+	surface.fillStyle="RGBA(0,222,0,1)";
+	surface.fillRect(130,25, playerLives*15,25);
+	}
 	
+	//surface.fillText(playerLives, 200, 50);
+	surface.fillStyle="RGBA(0,0,0,1)";
 	// Coin
 	surface.font = "30px Verdana";
 	surface.fillText(wCoins[lz], 400,50);
@@ -64,7 +78,8 @@ function render_UI()
 function initializer()
 {
 	surface.clearRect(0, 0, canvas.width, canvas.height); 
-	playerLives = 44;
+	maxLives =10;
+	playerLives = maxLives;
 	player.x = 50;
 	player.y = 300;
 	bossexit=false;
@@ -133,8 +148,8 @@ function weaponshop_render()
 	surface.fillRect(100,100,600,400);
 	surface.fillStyle = "RGBA(255,255,255,0.7)";
 	surface.font = "30px Verdana";
-	surface.fillText("Weapon Shop", 300, 50);
-	surface.fillText("Coins:", 550,90);
+	surface.fillText(wWeaponShop[lz], 300, 50);
+	surface.fillText(wCoins[lz], 550,90);
 	surface.fillText(coin,650,90);
 	
 	surface.fillText(weapon[1].name,200,200);
@@ -142,7 +157,7 @@ function weaponshop_render()
 	surface.fillText(weapon[3].name,200,300);
 	surface.fillText(weapon[4].name,200,350);
 	surface.fillText(weapon[5].name,200,400);
-	surface.fillText("Price",450,150);
+	surface.fillText(wPrice[lz],450,150);
 	surface.drawImage(menuImage[lz], 758,0,55,60,140,100+shop_option*50,60,60);
 	for (var i = 1; i < 4; i++)
 	{
@@ -181,11 +196,11 @@ function option_render() 						// Localization needed.
 	surface.font = "30px Verdana";
 	
 
-	surface.fillText("Option", 350, 50);
-	surface.fillText("Language", 200, 200 );
-	surface.fillText("BGM", 200, 250);
-	surface.fillText("Effect", 200, 300);
-	surface.fillText("Back",200,350);
+	surface.fillText(wOption[lz], 350, 50);
+	surface.fillText(wLanguage[lz], 200, 200 );
+	surface.fillText(wBGM[lz], 200, 250);
+	surface.fillText(wEffect[lz], 200, 300);
+	surface.fillText(wBack[lz],200,350);
 	surface.fillRect(450, 220, bgm_volume * 2,30);
 	surface.fillRect(450, 270, effect_volume * 2,30);
 	surface.fillText(wLocalLanguage[lz], 450,200);
