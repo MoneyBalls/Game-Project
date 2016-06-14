@@ -68,9 +68,10 @@
 	
 	//var checkEnemyArray = setInterval(viewInfo, 700);	//Strictly for debugging and checking enemyArray to see if it properly deletes the objects of the array (it does).
 	
-	
+	/*
 	var levelTwoButton = document.getElementById("levelTwo_button");
 	levelTwoButton.addEventListener("click", initLevelTwo);	//Button transition betweens levels for now.
+	*/
 	
 	var currentLevel = 1;	//Just to keep track on the level and adjust the code accordingly.
 	var mainmenu_option = 0; // 0 = start, 1 = weapon shop, 2= option,
@@ -89,6 +90,7 @@
 function initLevelOne()
 {
 	clearInterval(enemyint);
+	bgImage.src =  "img/purple_woods.jpg";
 	map[0] = {image:bgImage, x:0};
 	map[1] = {image:bgImage, x:800};
 	levelChecker();
@@ -156,7 +158,6 @@ function call_mapselect()
 {
 	clear_int();
 	mapselect_interval = setInterval(mapselect_update, 33.34);
-	
 }
 
 
@@ -167,11 +168,12 @@ function call_ingame()
 	clear_int();
 	initializer();
 	if (currentLevel==2)
-	{initLevelTwo();
+	{
+		initLevelTwo();
 	}
 	if (currentLevel==3)
 	{
-		initLevelThree();
+	initLevelThree();
 	}
 	initLevelOne();
 	

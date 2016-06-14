@@ -1,4 +1,4 @@
-	var lz = 1; //0 eng 1 chinese;
+	var lz = 0; //0 eng 1 chinese;
 
 	var wScore =[];
 		wScore[0] = "Score";
@@ -43,7 +43,21 @@
     var wDead =[];
         wDead[0] = "You are dead";
         wDead[1] = "你死了";
-
+	var wWeaponShop =[];
+        wWeaponShop[0] = "Weapon Shop";
+        wWeaponShop[1] = "武器商店";
+    var wOption = [];
+        wOption[0] = "Option";
+        wOption[1] = "设置";
+    var wLanguage =[];
+        wLanguage[0] = "Language";
+        wLanguage[1] = "语言";
+    var wBGM = [];
+        wBGM[0] = "BGM";
+        wBGM[1] = "背景音乐";
+    var wEffect =[];
+        wEffect[0] = "Effect";
+        wEffect[1] = "音效";
 	var menuImage =[];
         menuImage[0] = new Image;
 		menuImage[0].src = "img/mainmenu.png";
