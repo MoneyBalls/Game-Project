@@ -42,7 +42,7 @@
 		weapon[5] = {name: "some name 5", price:1};
 	
 	var initBullet = {width:10, height:10, speed:30, x:player.x , y:player.y};
-	var mapselImage = mapselImage[lz];
+	//var mapselImage = mapselImage[lz];
 	
 	var bgImage = new Image();
 		bgImage.src = "img/purple_woods.jpg";
@@ -60,7 +60,7 @@
 	
 	var enemyGun = new Audio();
 		enemyGun.src = "sound/shooter.wav";
-	var menuImage = menuImage[lz];
+	// var menuImage = menuImage[lz];
 		
 	
 	var bgm_volume=100;
@@ -78,7 +78,7 @@
 	
 	//
 	clearInterval(uIval);
-	menuImage.addEventListener("load", mainmenu_render);
+	menuImage[lz].addEventListener("load", mainmenu_render);
 	
 	
 	// CALLING STATE

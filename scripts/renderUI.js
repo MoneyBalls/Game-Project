@@ -90,11 +90,11 @@ carm=[];
 function mainmenu_render()
 {
 	
-	surface.drawImage(menuImage, 0, 60, 800,600, 0,0,800,600);
-	surface.drawImage(menuImage, 0,0,256,60,280,350,256,60);	//start
-	surface.drawImage(menuImage, 256,0,256,60,280,420,256,60);	//Weapon shop
-	surface.drawImage(menuImage, 512,0,246,60,280,490,256,60);	//Option
-	surface.drawImage(menuImage, 758,0,55,60,220,350+mainmenu_option*70,60,60);	//arrow
+	surface.drawImage(menuImage[lz], 0, 60, 800,600, 0,0,800,600);
+	surface.drawImage(menuImage[lz], 0,0,256,60,280,350,256,60);	//start
+	surface.drawImage(menuImage[lz], 256,0,256,60,280,420,256,60);	//Weapon shop
+	surface.drawImage(menuImage[lz], 512,0,246,60,280,490,256,60);	//Option
+	surface.drawImage(menuImage[lz], 758,0,55,60,220,350+mainmenu_option*70,60,60);	//arrow
 	
 }
 
@@ -143,7 +143,7 @@ function weaponshop_render()
 	surface.fillText(weapon[4].name,200,350);
 	surface.fillText(weapon[5].name,200,400);
 	surface.fillText("Price",450,150);
-	surface.drawImage(menuImage, 758,0,55,60,140,100+shop_option*50,60,60);
+	surface.drawImage(menuImage[lz], 758,0,55,60,140,100+shop_option*50,60,60);
 	for (var i = 1; i < 4; i++)
 	{
 	if (weapon[i].price == "Owned")
@@ -161,8 +161,8 @@ function weaponshop_render()
 }
 function mapselect_render()
 {
-	surface.drawImage(mapselImage,0,0,800,600);
-	surface.drawImage(menuImage, 758,0,55,60,30+mapselect_option*140,200,60,60);
+	surface.drawImage(mapselImage[lz],0,0,800,600);
+	surface.drawImage(menuImage[lz], 758,0,55,60,30+mapselect_option*140,200,60,60);
 	
 	for (var i = unlockedlevel; i < 5; i++)
 	{
@@ -190,6 +190,6 @@ function option_render() 						// Localization needed.
 	surface.fillRect(450, 270, effect_volume * 2,30);
 	surface.fillText(wLocalLanguage[lz], 450,200);
 	
-		surface.drawImage(menuImage, 758,0,55,60,140,100+option_option*50,60,60);
+		surface.drawImage(menuImage[lz], 758,0,55,60,140,100+option_option*50,60,60);
 
 }
