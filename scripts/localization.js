@@ -52,6 +52,9 @@
 
     var mapselImage =[];
         mapselImage[0] = new Image;
-        mapselImage[0].src = "img/level-selection.png";
+        mapselImage[0].src = "img/level-selection2.png";
         mapselImage[1] = new Image;
         mapselImage[1].src = "img/level-selectionCH.png";
+	var wLocalLanguage = [];
+	wLocalLanguage[0] = "English";
+	wLocalLanguage[1] = "Chinese";
