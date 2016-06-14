@@ -20,7 +20,7 @@ function death()
 	surface.fillStyle = "Black";
 	surface.fillRect(0,0,800,600);
 	surface.fillStyle = "White";
-	surface.fillText("You are dead", 300,300);
+	surface.fillText(wDead[lz], 300,300);
 	surface.fillStyle = "Black";
 	*/
 	
