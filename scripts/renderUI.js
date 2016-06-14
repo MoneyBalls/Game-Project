@@ -14,12 +14,12 @@ function render_UI()
 
 	// Render lives
 	surface.font = "30px Verdana";
-	surface.fillText("Lives: ", 50, 50);
+	surface.fillText(wLives[lz], 50, 50);
 	surface.fillText(playerLives, 200, 50);
 	
 	// Coin
 	surface.font = "30px Verdana";
-	surface.fillText("Coins: ", 400,50);
+	surface.fillText(wCoins[lz], 400,50);
 	surface.fillText(coin,550,50);
 	// Render Weapon UI
 		surface.font = "20px Verdana";
@@ -121,7 +121,7 @@ function win_msg()
 	surface.fillStyle = "RGBA(0,200,200,0.8)";
 	surface.fillRect(0,180,800,200);
 	surface.fillStyle = "White";
-	surface.fillText("Stage Cleared", 310,280);
+	surface.fillText(wClear[lz], 310,280);
 	surface.fillStyle = "Black";
 }
 function weaponshop_render()
@@ -156,7 +156,7 @@ function weaponshop_render()
 	}
 	
 	}
-	surface.fillText("Back",200,450);
+	surface.fillText(wBack[lz],200,450);
 	
 }
 function mapselect_render()
