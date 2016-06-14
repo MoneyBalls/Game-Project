@@ -188,7 +188,7 @@ function option_render() 						// Localization needed.
 	surface.fillText("Back",200,350);
 	surface.fillRect(450, 220, bgm_volume * 2,30);
 	surface.fillRect(450, 270, effect_volume * 2,30);
-	surface.fillText(LocalLanguage[lz], 450,200);
+	surface.fillText(wLocalLanguage[lz], 450,200);
 	
 		surface.drawImage(menuImage, 758,0,55,60,140,100+option_option*50,60,60);
 
